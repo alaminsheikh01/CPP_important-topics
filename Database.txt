@@ -1,0 +1,341 @@
+                                                                                                                              -------database------------
+
+
+select * from employees
+select first_name,salary from employees order by salary asc
+select first_name ,salary from employees order by salary desc
+select max (salary) from employees
+select max(salary),min(salary),sum(salary) from employees
+select count (salary) from employees
+select count (*) from employees
+select avg(commission_pct) from employees
+select avg(nvl(commission_pct,0)) from employees
+select first_name,min(salary) from employees
+select department_id,min(salary) from employees
+where department_id<>20 
+group by department_id
+having min(salary)>5000
+order by department_id
+
+                                                          ------practice------
+
+
+
+select * from employees
+select first_name, salary from employees order by salary asc
+select first_name, salary from employees order by salary desc
+select max (salary) from employees
+select max(salary),min(salary),sum(salary) from employees
+select count (salary) from employees
+select count (*) from employees
+
+select avg(commission_pct) from employees
+select avg(nvl(commission_pct,0)) from employees
+select first_name,min(salary) from employees
+select department_id,min(salary) from employees
+where department_id<>20 
+group by department_id
+having min(salary)>5000
+order by department_id
+
+
+
+
+         ------Practice------
+
+1.
+select first_name,last_name,department_id from employees
+
+2.
+select first_name||' '||last_name ,department_id from employees
+
+3.
+select first_name,last_name,salary from employees
+
+4.
+
+select first_name,last_name,department_id from employees where department_id=80 or department_id=40
+
+5.
+select first_name,last_name,department_id from employees where first_name like '%z%'
+
+6.
+select department_id,commission_pct from employees where commission_pct is null
+
+7.
+
+select first_name from employees where first_name<>'%z%'
+8.
+
+select first_name, salary from employees where salary not between 17000 and 24000
+
+9.
+select first_name, hire_date from employees where hire_date ='03-JAN-90'
+
+10.
+select count(department_id ) as "Number" from employees where department_id=90 
+
+11.
+select min(last_name)  from employees
+select last_name from employees order by last_name desc
+
+
+12.
+select max(last_name) from employees 
+select last_name from employees order by last_name asc
+
+
+13.
+select count(*) from employees
+
+14.
+select employee_id, first_name,last_name,salary,department_id from employees where department_id is null
+
+15.
+select employee_id, first_name,last_name,salary
+from employees 
+where first_name like 'S%' and salary>=4000
+
+16.
+select employee_id, first_name,last_name,salary
+from employees 
+where first_name like 'S%' or first_name like 'A%'
+
+17.
+select department_id, employee_id, first_name,last_name,salary
+from employees 
+where department_id not in(90,60,100)
+
+select upper(first_name) as newname, round(sysdate-hire_date,2) from employees
+
+select salary, commission_pct ,nvl(salary+commission_pct,0) from employees
+
+select salary, commission_pct,nvl2(commission_pct,salary+commission_pct,salary) from employees
+
+
+select department_id,salary,
+           DECODE( department_id,10 , salary*1,  
+                  20   ,salary*2,
+                    30 , salary*3,
+                    40 , salary*4,
+                                         salary*0)
+
+as newname 
+from employees
+                  
+
+
+
+                   -----------------practice---------
+
+
+
+select upper(first_name) as newname, round(sysdate-hire_date,2) from employees
+
+select salary, commission_pct ,nvl(salary+commission_pct,0) from employees
+
+select salary, commission_pct,nvl2(commission_pct,salary+commission_pct,salary) from employees
+
+
+select department_id,salary,
+           DECODE( department_id,10 , salary*1,  
+                  20   ,salary*2,
+                    30 , salary*3,
+                    40 , salary*4,
+                                         salary*0)
+
+as newname 
+from employees
+                  
+select * from employees
+
+
+
+
+
+
+
+
+
+        ---------practice--------
+
+
+1.
+select max(salary)as Maximum,min(salary)as Minimum,trunc(avg(salary),2)as Average,sum(salary)as Summation from employees
+
+
+2.
+select max(salary),min(salary),round(avg(salary),2) from employees order by department_id desc
+
+4.
+select salary, commission_pct ,nvl(salary+commission_pct,0) from employees
+
+5.
+select max(salary) from employees where hire_date>('01-jan-1980')
+
+6.
+select  count(salary) as "Number" from employees where salary>1200
+
+8.
+select count(department_id) as "Number of Managers" from employees where department_id=90
+
+
+9.
+select max(salary),min(salary),(max(salary)-min(salary)) as DIFFRENCE from employees
+
+10.
+select count(department_id) as "department number ", min(salary) from employees where salary>1000 order by min(salary) desc
+
+11.
+select count(department_id)as "dname" , count(employee_id) as "Number of people"
+,round(avg(salary),2)as "salary" from employees group by department_id
+
+
+                                       cerated table 
+
+
+create table emptest 
+( 
+ eid number (6),
+ ename varchar2(50),
+ salary number (5)
+)
+desc emptest 
+
+alter table emptest 
+add 
+(email varchar2(52))
+
+alter table emptest 
+drop column
+email
+
+alter table emptest 
+modify 
+(salary number (10))
+
+alter table emptest 
+rename column
+salary to sal
+
+rename emptest to emptest1
+
+drop table emptest1 
+
+desc emptest 
+select * from emptest 
+
+insert into emptest 
+( eid, ename, salary )
+values 
+(102,'Alamin_sheikh',10000)
+
+update emptest set 
+ename ='sheikh_Alamin'
+where ename='Alamin_sheikh'
+
+
+
+exam
+
+1.
+select first_name||' '||last_name,salary from employees where salary =24000
+2.
+select first_name,last_name, department_id,employee_id from employees where employee_id=127
+3.
+select first_name,last_name,hire_date job_id from employees where hire_date='20-FEB-81' and hire_date='1-may-81'
+order by hire_date asc  
+4.
+select first_name,last_name, department_id from employees 
+where department_id in(10 , 30)
+order by department_id asc
+
+5.
+select first_name, last_name, hire_date from employees where hire_date ='1-JAN-82'
+
+6.
+select first_name, last_name, job_id ,manager_id from employees where manager_id not---------------
+
+7.
+select first_name, last_name, salary ,commission_pct from employees 
+order by salary desc
+
+8.
+select first_name,last_name from employees where first_name like 'S%' and first_name like '--e%'
+
+9.
+select first_name,last_name from employees where first_name like 'L%%' 
+
+10.
+select first_name, last_name , department_id from employees
+
+11.
+select max(salary) ,manager_id from employees 
+where manager_id =100
+group by manager_id
+
+12.
+select avg(salary) department_id from employees 
+where department_id <>90
+group by department_id
+
+13.
+select job_id from employees where job_id='IT_PROG'
+
+14.
+create table order_information 
+(
+ ordno number(5) constraint order_information_ordno_pk primary kay,
+ orddate date(7),
+ shipdate date(7),
+ custno number(5)constraint order_information_ordno_fk referance cust_info(custno)
+ address1 varchar2(50) default 'no address',
+ address2 varchar2(50),
+ city varchar2(30),
+ state varchar2(30),
+ pin varchar2(10),
+ phone varchar2(30),
+
+)
+
+create table cust_info
+(
+custno number(5),
+cname varchar2(50)
+)
+
+desc order_information
+select * from order_information
+
+
+insert table order_information
+(
+ordno,orddate, shipdate,custno, address1, addess2, city,state, pin,phone
+)
+
+
+
+
+select * from employees
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
